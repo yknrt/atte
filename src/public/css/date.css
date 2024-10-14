@@ -1,0 +1,83 @@
+.attendance__content {
+    margin: 0 auto;
+    padding: 40px 40px;
+    max-width: 90%;
+}
+
+.attendance-form__heading {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 50px;
+    font-size: 20px;
+    text-align: center;
+}
+
+.attendance-form__heading span {
+    margin: auto 50px;
+}
+
+.attendance-form__heading button {
+    background-color: #fff;
+    color: blue;
+    border: 1px solid blue;
+    cursor: pointer;
+}
+
+button:disabled {
+    cursor: default;
+    opacity: 0.5;
+}
+
+.form {
+    margin-bottom: 40px;
+    text-align: center;
+}
+
+.attendance-table {
+    margin: 0 auto;
+    text-align: center;
+    width: 80%;
+    height: 60%;
+}
+
+.attendance-table__row {
+    border-top: 1px solid #000;
+}
+
+.attendance-table__header,
+.attendance-table__item {
+    padding: 30px;
+    font-weight: bold;
+}
+
+.pagination {
+    display: flex;
+    justify-content: center;
+    list-style: none;
+    padding: 0;
+}
+
+.pagination li {
+    display: inline-block;
+    margin: 0 5px;
+}
+
+/* .pagination li a,
+.pagination li span {
+    display: block;
+    padding: 8px 16px;
+    text-decoration: none;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    color: #007bff;
+}
+
+.pagination li a:hover {
+    background-color: #e9ecef;
+}
+
+.pagination .active span {
+    background-color: #007bff;
+    color: white;
+    border-color: #007bff;
+} */

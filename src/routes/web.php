@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\AttendanceController;
+use App\Http\Controllers\AuthController;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,6 +15,23 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+Route::middleware('auth')->group(function () {
+    Route::get('/', [AttendanceController::class, 'index']);
 });
+Route::post('/store', [AttendanceController::class, 'store']);
+
+// ログインページの表示
+Route::get('/login', [AuthController::class, 'showLoginForm'])->name('login');
+// ログイン処理
+Route::post('/login', [AuthController::class, 'login']);
+
+// 登録ページの表示
+Route::get('/register', [AuthController::class, 'showRegistrationForm'])->name('register');
+// 登録処理
+Route::post('/register', [AuthController::class, 'register']);
+//登録後のリダイレクト
+// Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard')->middleware('auth');
+
+Route::get('/attendance', [AttendanceController::class, 'attendance'])->name('date');
+Route::get('/attendanceUsers', [AttendanceController::class, 'attendanceUsers'])->name('user');
+
