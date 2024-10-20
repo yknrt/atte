@@ -18,14 +18,10 @@
 
 .attendance-form__heading button {
     background-color: #fff;
-    color: blue;
-    border: 1px solid blue;
+    color: black;
+    border: 1px solid black;
     cursor: pointer;
-}
-
-button:disabled {
-    cursor: default;
-    opacity: 0.5;
+    margin-left: 10px;
 }
 
 .form {
@@ -61,23 +57,3 @@ button:disabled {
     display: inline-block;
     margin: 0 5px;
 }
-
-/* .pagination li a,
-.pagination li span {
-    display: block;
-    padding: 8px 16px;
-    text-decoration: none;
-    border: 1px solid #ddd;
-    border-radius: 4px;
-    color: #007bff;
-}
-
-.pagination li a:hover {
-    background-color: #e9ecef;
-}
-
-.pagination .active span {
-    background-color: #007bff;
-    color: white;
-    border-color: #007bff;
-} */
