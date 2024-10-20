@@ -5,13 +5,11 @@
 @endsection
 
 @section('nav')
-<!-- <nav>
-    <ul class="header-nav"> -->
     <li class="header-nav-item">
         <a class="header__link" href="../">ホーム</a>
     </li>
     <li class="header-nav-item">
-        <a class="header__link" href="{{ route('user') }}">ユーザー一覧</a>
+        <a class="header__link" href="{{ route('auth') }}">ユーザー一覧</a>
     </li>
     <li class="header-nav-item">
         <a class="header__link" href="{{ route('date') }}">日付一覧</a>
@@ -21,8 +19,6 @@
             <input class="header__btn" type="submit" value="ログアウト">
         </form>
     </li>
-    <!-- </ul>
-</nav> -->
 @endsection
 
 @section('content')
@@ -32,9 +28,9 @@
         <div class="attendance-form__heading">
             @php
                 use Carbon\Carbon;
-                $yesterday = Carbon::yesterday()->format('Y-m-d');
+                $today = Carbon::today()->format('Y-m-d');
             @endphp
-            @if ($date == $yesterday)
+            @if ($date == $today)
             <button type="submit" name="addDay" disabled>&lt;</button>
             @else
             <button type="submit" name="addDay">&lt;</button>

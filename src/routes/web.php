@@ -29,9 +29,7 @@ Route::post('/login', [AuthController::class, 'login']);
 Route::get('/register', [AuthController::class, 'showRegistrationForm'])->name('register');
 // 登録処理
 Route::post('/register', [AuthController::class, 'register']);
-//登録後のリダイレクト
-// Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard')->middleware('auth');
 
 Route::get('/attendance', [AttendanceController::class, 'attendance'])->name('date');
-Route::get('/attendanceUsers', [AttendanceController::class, 'attendanceUsers'])->name('user');
-
+Route::get('/attendanceUser', [AttendanceController::class, 'attendanceUser'])->name('auth');
+Route::get('/attendanceUser/search', [AttendanceController::class, 'searchUser']);

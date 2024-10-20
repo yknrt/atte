@@ -9,7 +9,7 @@
         <a class="header__link" href="/">ホーム</a>
     </li>
     <li class="header-nav-item">
-        <a class="header__link" href="{{ route('user') }}">ユーザー一覧</a>
+        <a class="header__link" href="{{ route('auth') }}">ユーザー一覧</a>
     </li>
     <li class="header-nav-item">
         <a class="header__link" href="{{ route('date') }}">日付一覧</a>
