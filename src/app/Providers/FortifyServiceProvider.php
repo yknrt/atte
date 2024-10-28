@@ -11,7 +11,13 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\RateLimiter;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Str;
+use Illuminate\Support\Facades\Hash;
 use Laravel\Fortify\Fortify;
+use App\Http\Requests\LoginRequest;
+use App\Models\User;
+use Laravel\Fortify\Http\Requests\LoginRequest as FortifyLoginRequest;
+use App\Actions\Fortify\CustomLoginAction;
+
 
 class FortifyServiceProvider extends ServiceProvider
 {
@@ -30,6 +36,21 @@ class FortifyServiceProvider extends ServiceProvider
     {
         Fortify::createUsersUsing(CreateNewUser::class);
 
+        Fortify::verifyEmailView(function () {
+            return view('auth.verify-email');
+        });
+
+        // Fortifyのログイン処理を独自のLoginRequestで設定
+        Fortify::authenticateUsing(function (LoginRequest $request) {
+            $user = User::where('email', $request->email)->first();
+
+            if ($user && Hash::check($request->password, $user->password)) {
+                return $user;
+            }
+
+            return null;
+        });
+
         Fortify::registerView(function () {
             return view('auth.register');
         });
@@ -45,5 +66,6 @@ class FortifyServiceProvider extends ServiceProvider
         });
 
         $this->app->bind(FortifyLoginRequest::class, LoginRequest::class);
+
     }
 }
