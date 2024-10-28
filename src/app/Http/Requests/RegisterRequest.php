@@ -19,12 +19,12 @@ class RegisterRequest extends FormRequest
      *
      * @return array<string, \Illuminate\Contracts\Validation\ValidationRule|array<mixed>|string>
      */
-    public function rules(): array
+    public function rules()//: array
     {
         return [
             'name' => ['required', 'string', 'max:191'],
             'email' => ['required', 'email', 'unique:users,email', 'string', 'max:191'],
-            'password' => ['required', 'between:8, 191', 'confirmed']
+            'password' => ['required', 'between:8, 191', 'confirmed'],
         ];
     }
 
@@ -38,6 +38,7 @@ class RegisterRequest extends FormRequest
             'email.string' => 'メールアドレスを文字列で入力してください',
             'email.email' => '有効なメールアドレス形式を入力してください',
             'email.unique' => 'すでにこのメールアドレスは登録されています',
+            'email.max' => 'メールアドレスを191文字以下で入力してください',
             'password.required' => 'パスワードを入力してください',
             'password.between' => 'パスワードは8文字以上191文字以下で入力してください',
             'password.confirmed' => 'パスワードと、確認用パスワードとが、一致していません',
